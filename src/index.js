@@ -1,4 +1,10 @@
 'use strict'
+const { isPackageExists } = require('local-pkg')
+
+const SL = isPackageExists('stylelint')
+
+if (!SL)
+  console.warn('[@btrl/stylelint-config] Stylelint is not installed, ensure to install it manually "pnpm add -D stylelint".')
 
 module.exports = {
   extends: [
