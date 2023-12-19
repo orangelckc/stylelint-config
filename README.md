@@ -22,10 +22,18 @@ pnpm add -D stylelint
 
 ## Usage
 
-Create a `.stylelintrc.cjs` file with the following contents:
+Depends on your [default module system configuration](https://nodejs.org/api/packages.html#determining-module-system) for Node.js, create a `stylelint.config.cjs` file using `CommonJS` OR create a `stylelint.config.mjs` file using `ES module` with the following contents:
 
 ```js
+// stylelint.config.cjs
 module.exports = {
+  extends: '@btrl/stylelint-config',
+}
+```
+
+```js
+// stylelint.config.mjs
+export default {
   extends: '@btrl/stylelint-config',
 }
 ```
@@ -57,7 +65,7 @@ For example:
 ```json
 {
   "scripts": {
-    "lint:style": "stylelint \"**/*.{vue,css,scss}\" --fix"
+    "lint:style": "stylelint src/**/*.{vue,css,scss} --fix"
   }
 }
 ```
